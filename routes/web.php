@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthManager;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/Home', function () {
     return view('welcome');
 })->name('home');
 
@@ -12,3 +12,19 @@ Route::post('/login', [AuthManager::class, 'loginPost']) ->name('login.post');
 Route::get('/logout', [AuthManager::class, 'logout']) ->name('logout');
 Route::get('/registration', [AuthManager::class, 'registration'])->name('registration');
 Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('registration.post');
+
+Route::get('/Services', function () {
+    return view('product');
+})->name('product');
+
+Route::get('/Admin', function () {
+    return view('admin');
+})->name('admin console');
+
+
+
+Route::get('/usercreate', function () {
+    return view('admin');
+})->name('admin console');
+
+Route::get('/Admin', [AuthManager::class, 'showProfile'])->name('showProfile');
