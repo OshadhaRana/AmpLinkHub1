@@ -3,14 +3,13 @@
 @section('content')
 
     <header>
-        <a href="#" class="logo"><img src="Images/amplinkhub-favicon-color.png" alt="logo" > AmpLinkHub</a>
+        <a href="/Home" class="logo"><img src="Images/amplinkhub-favicon-color.png" alt="logo" > AmpLinkHub</a>
 
         <ul class="navlist">
             <li><a href="/Home">Home</a></li>
             <li><a href="Products">About</a></li>
             <li><a href='/Services'>Products</a></li>
             <li><a href="Life">Batt & Tire Lifespan Tracker</a></li>
-
         </ul>
 
         <div class="bx bx-menu" id="menu-icon"></div>
@@ -201,6 +200,7 @@
     </div>
 
     <div class="scroll-down">
-        <a href="#"><i class="ri-arrow-down-s-fill"></i></a>
+        <button class="ri-arrow-down-s-fill" onclick="scrollToBottom()"></button>
+
     </div>
     <script src="js/prodscript.js"></script>

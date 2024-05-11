@@ -1,19 +1,18 @@
-@extends('layout')
-@section('title', 'Login')
+@extends('createuserlayout')
+@section('title', 'Create User')
 @section('content')
-
     <div class="contrainer">
         <div class="login-form">
-            <h1>Login</h1>
+            <h1>Create Admin User</h1>
             <div class="container">
                 <div class="main">
                     <div class="content">
-                        <h2>Log In</h2>
+
                         <div class="mt-5">
                             @if($errors->any())
                                 <div class="col-12">
                                     @foreach ($errors->all() as $error)
-                                        <div class="alert alert-danger">{{ $error }}</div>
+                                        <div class="alert">{{ $error }}</div>
                                     @endforeach
                                 </div>
                             @endif
@@ -26,19 +25,20 @@
                                 <div class="alert alert-success">{{ session('success') }}</div>
                             @endif
                         </div>
-                        <form action="{{ route('login.post') }}" method="POST">
+                        <form  action="{{ route('createuser.post') }}" method="POST">
                             @csrf
                             <input type="text" name="name" placeholder="User Name" required autofocus> <!-- autofocus enables the cursor to load up on this input field when the web page is loaded-->
+                            <input type="email" name="email" placeholder="Email" required autofocus>
                             <input type="password" name="password" placeholder="User Password" required autofocus>
                             <button class="btn" type="submit">
-                                Login
+                                Register
                             </button>
                         </form>
-                        <p class="account">Don't Have An Account <a href="{{ url('registration') }}">Register</a></p>
+
 
                     </div>
                     <div class="form-img">
-                        <img src="/Images/tyre_emoji.png" alt="">
+                        <img src="/Images/ea19fe71f0255e215fa7a109bd59862e-removebg-preview.png" alt="">
                     </div>
                 </div>
             </div>

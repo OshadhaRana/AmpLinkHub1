@@ -28,3 +28,10 @@ function resetActiveBtn(){
         btn.classList.remove('active-btn');
     });
 }
+
+function scrollToBottom() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
+}

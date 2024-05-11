@@ -1,10 +1,9 @@
 @extends('layout')
-@section('title', 'Login')
+@section('title', 'Registration')
 @section('content')
-
     <div class="contrainer">
         <div class="login-form">
-            <h1>Login</h1>
+            <h1>Forget Password</h1>
             <div class="container">
                 <div class="main">
                     <div class="content">
@@ -25,19 +24,19 @@
                                 <div class="alert alert-success">{{ session('success') }}</div>
                             @endif
                         </div>
-                        <form action="{{ route('login.post') }}" method="POST">
+                        <form  action="{{ route('forget.password.post') }}" method="POST">
                             @csrf
-                            <input type="text" name="name" placeholder="User Name" required autofocus> <!-- autofocus enables the cursor to load up on this input field when the web page is loaded-->
-                            <input type="password" name="password" placeholder="User Password" required autofocus>
+                            <input type="email" name="email" placeholder="Email" required autofocus>
                             <button class="btn" type="submit">
-                                Login
+                                Register
                             </button>
                         </form>
-                        <p class="account">Don't Have An Account <a href="{{ url('registration') }}">Register</a></p>
-                        <p class="account">Forgot<a href="{{ route("forget.password") }}">Password?</a></p>
+
+                        <p class="account">Remebered<a href="{{ url('login') }}">Password</a></p>
+
                     </div>
                     <div class="form-img">
-                        <img src="/Images/tyre_emoji.png" alt="">
+                        <img src="/Images/car_battery.png" alt="">
                     </div>
                 </div>
             </div>

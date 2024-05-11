@@ -10,26 +10,31 @@
         <li><a href="Products">About</a></li>
         <li><a href='/Services'>Products</a></li>
         <li><a href="Life">Batt & Tire Lifespan Tracker</a></li>
+        <li><a href="/logout">Log Out</a></li>
 
     </ul>
+
 
     <div class="bx bx-menu" id="menu-icon"></div>
 </header>
 
-<section class="hero">
-    <div class="hero-text">
-        <h5>#1 Best Selling Brand</h5>
-        <h4>Last Long, Really Long</h4>
-        <h1>Amaron</h1>
-        <p>Discover unparalleled power and reliability with our selection of Amaron batteries, <br>ensuring your vehicle stays charged and ready for the road ahead.</p>
 
-        <a href="#" class="ctaa"><i class="ri-battery-2-charge-fill"></i>Battery Health</a>
-    </div>
+    <section class="hero">
+        <div class="hero-text">
+            <h5>#1 Best Selling Brand</h5>
+            <h4>Last Long, Really Long</h4>
+            <h1>Amaron</h1>
+            <p>Discover unparalleled power and reliability with our selection of Amaron batteries, <br>ensuring your vehicle stays charged and ready for the road ahead.</p>
 
-    <div class="hero-img">
-        <img src="Images/car_battery.png">
-    </div>
-</section>
+            <a href="#" class="ctaa"><i class="ri-battery-2-charge-fill"></i>Battery Health</a>
+        </div>
+
+        <div class="hero-img">
+            <img src="Images/car_battery.png">
+        </div>
+    </section>
+
+
 
 
 <div class="icons">
@@ -39,11 +44,7 @@
 </div>
 
 <div class="scroll-down">
-    <a href="#"><i class="ri-arrow-down-s-fill"></i></a>
+    <button class="ri-arrow-down-s-fill" onclick="scrollToBottom()"></button>
+
 </div>
 
-<!--scrollreveal effect-->
-<script src="https://unpkg.com/scrollreveal"></script>
-
-<!--Custom js link-->
-<script src="/js/script.js"></script>

@@ -18,7 +18,11 @@ class AuthManager extends Controller
         return view('registration');
     }
 
-    function loginPost(Request $request) {
+    function createuser(){
+        return view('createuser');
+    }
+
+    /*function loginPost(Request $request) {
         $request->validate([
             'name' => 'required',
             'password' => 'required'
@@ -38,13 +42,49 @@ class AuthManager extends Controller
                 return redirect()->intended(route('home'));
             } elseif ($user && $user->usertype == 'admin') {
                 // User is an admin, return the admin view
-                return view('admin');
+                return view('admin', ['name' => $user->name]);
+
+            }
+
+        }
+
+
+
+        // If authentication fails or user type is not recognized, redirect to login with error message
+        return redirect(route('login'))->with("error", "Login details are not valid.");
+    }*/
+    function loginPost(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'password' => 'required'
+        ]);
+
+        // Retrieve user credentials from the request
+        $credentials = $request->only('name', 'password');
+
+        // Attempt to authenticate the user
+        if (Auth::attempt($credentials)) {
+            // Authentication successful, retrieve the authenticated user
+            $user = Auth::user();
+
+            // Store the user's name in the session
+            session(['user_name' => $user->name, 'user_email' => $user->email]);
+
+            // Check if the user exists and has a user type
+            if ($user->usertype == 'user') {
+                // User is a regular user, redirect to the home page
+                return redirect()->intended(route('home'));
+            } elseif ($user->usertype == 'admin') {
+                // User is an admin, return the admin view with the name from session
+                return view('admin', ['name' => session('user_name'), 'email' => \session('user_email')]);
             }
         }
 
         // If authentication fails or user type is not recognized, redirect to login with error message
         return redirect(route('login'))->with("error", "Login details are not valid.");
     }
+
+
 
     function registrationPost(Request $request){
         $request->validate([
@@ -64,21 +104,54 @@ class AuthManager extends Controller
 
     }
 
+    function createuserPost(Request $request){
+        // Validate the request data
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required'
+        ]);
+
+        // Store the currently logged-in user's information in the session
+        $currentUser = Auth::user();
+        session(['logged_in_user' => $currentUser]);
+        session(['user_name' => $currentUser->name]);
+
+        // Create the new user
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['password'] = Hash::make($request->password);
+        $data['usertype'] = 'admin';
+
+        $user = User::create($data);
+
+        if(!$user){
+            return redirect(route('createuser'))->with("error", "Registration failed, try again");
+        }
+
+        // Redirect back to the admin page with the user who was logged in initially and their name
+        return redirect()->route('admin')->with(['user' => session('logged_in_user'), 'name' => session('user_name')]);
+    }
+
+    public function showAdminUsers()
+    {
+        $adminUsers = User::where('usertype', 'admin')->get();
+        return view('viewuser', ['adminUsers' => $adminUsers]);
+    }
+
     function logout() {
         Auth::logout(); // This will log out the authenticated user
-        Session::flush(); // This will clear all session data
-
+        Session::flush();
         return redirect(route('login')); // Redirect to the login page
     }
 
-    public function showProfile()
-    {
-        // Retrieve the authenticated user
-        $user = Auth::user();
 
-        // Pass the user's name to the view
-        return view('admin', ['name' => $user->name]);
-    }
+
+
+
+
+
+
 }
 
 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
     <link href="/css/home_style.css" rel="stylesheet">
+
     <!---boxicon link-->
     <link rel="stylesheet"
     href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -16,5 +17,11 @@
   <body>
     @yield('content')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--scrollreveal effect-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--Custom js link-->
+    <script src="/js/script.js"></script>
+
   </body>
 </html>

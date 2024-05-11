@@ -3,11 +3,11 @@
 @section('content')
     <div class="contrainer">
         <div class="login-form">
-            <h1>Login</h1>
+            <h1>Register</h1>
             <div class="container">
                 <div class="main">
                     <div class="content">
-                        <h2>Register</h2>
+
                         <div class="mt-5">
                             @if($errors->any())
                                 <div class="col-12">
@@ -34,7 +34,6 @@
                             Register
                         </button>
                     </form>
-                    <p class="account">Forgot <a href="#">Password</a></p>
                     <p class="account">Already have an  <a href="{{ url('login') }}">Account</a></p>
 
                 </div>
@@ -45,5 +44,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection
