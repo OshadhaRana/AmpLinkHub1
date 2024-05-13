@@ -112,11 +112,6 @@ class AuthManager extends Controller
             'password' => 'required'
         ]);
 
-        // Store the currently logged-in user's information in the session
-        $currentUser = Auth::user();
-        session(['logged_in_user' => $currentUser]);
-        session(['user_name' => $currentUser->name]);
-
         // Create the new user
         $data['name'] = $request->name;
         $data['email'] = $request->email;
@@ -129,9 +124,13 @@ class AuthManager extends Controller
             return redirect(route('createuser'))->with("error", "Registration failed, try again");
         }
 
+        // Store the currently logged-in user's information in the session
+
+
         // Redirect back to the admin page with the user who was logged in initially and their name
-        return redirect()->route('admin')->with(['user' => session('logged_in_user'), 'name' => session('user_name')]);
+        return view('admin', ['name' => session('user_name'), 'email' => \session('user_email')]);
     }
+
 
     public function showAdminUsers()
     {

@@ -49,13 +49,21 @@ return [
     |                    "errorlog", "monolog", "custom", "stack"
     |
     */
+    // config/logging.php
+
+
 
     'channels' => [
 
         'stack' => [
             'driver' => 'stack',
-            'channels' => explode(',', env('LOG_STACK', 'single')),
-            'ignore_exceptions' => false,
+            'channels' => ['daily', 'custom'],
+        ],
+
+        'custom' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/custom.log'),
+            'level' => 'debug',
         ],
 
         'single' => [
