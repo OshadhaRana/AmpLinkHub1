@@ -5,6 +5,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Star Admin2 </title>
+    <!---boxicon link-->
+    <link rel="stylesheet"
+          href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!---remixicon link-->
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"rel="stylesheet"/>
 <!-- plugins:css -->
 <link rel="stylesheet" href="/assets/vendors/feather/feather.css">
 <link rel="stylesheet" href="/assets/vendors/mdi/css/materialdesignicons.min.css">

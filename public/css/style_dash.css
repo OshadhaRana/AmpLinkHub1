@@ -30384,3 +30384,17 @@ dl li {
     outline: 1px solid slategrey;
 }
 /*# sourceMappingURL=maps/style.css.map */
+
+
+.no-underline {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+}
+.no-underline:hover {
+    color: #000000; /* Change this to your preferred hover color */
+}
+.no-underline i {
+    margin-right: 5px; /* Adjust the space between icon and text */
+}

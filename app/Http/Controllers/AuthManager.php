@@ -145,6 +145,13 @@ class AuthManager extends Controller
     }
 
 
+    //user view to admin
+    public function viewusertoadmin()
+    {
+        return view('admin', ['name' => session('user_name'), 'email' => \session('user_email')]);
+
+    }
+
 
 
 
