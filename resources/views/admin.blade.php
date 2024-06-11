@@ -178,11 +178,10 @@
                     </a>
                 </li>
 
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                         <i class="menu-icon mdi mdi-account-circle-outline"></i>
-                        <span class="menu-title">User</span>
+                        <span class="menu-title">Admin</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="auth">
@@ -190,6 +189,21 @@
 
                             <li class="nav-item"> <a class="nav-link" href="{{ url('createuser') }}"> Create User </a></li>
                             <li class="nav-item"> <a class="nav-link" href="{{ url('viewuser') }}"> All Users </a></li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#auth1" aria-expanded="false" aria-controls="auth">
+                        <i class="menu-icon mdi mdi-account-circle-outline"></i>
+                        <span class="menu-title">Customers</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="auth1">
+                        <ul class="nav flex-column sub-menu">
+
+
 
                         </ul>
                     </div>
@@ -386,7 +400,7 @@
                                                 </div>
                                             </div>
 
-                                            
+
                                             <div class="row flex-grow">
                                                 <div class="col-md-6 col-lg-6 grid-margin stretch-card">
                                                     <div class="card card-rounded">
