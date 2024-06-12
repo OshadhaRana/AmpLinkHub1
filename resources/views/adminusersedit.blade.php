@@ -16,9 +16,6 @@
                         <div class="row flex-grow">
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card card-rounded">
-                                    <div class="card-body">
-
-
                                         <div class="card-body">
                                             <div class="d-sm-flex justify-content-between align-items-start">
                                                 <a href="{{url('viewusertoadmin')}}" class="no-underline">
@@ -71,7 +68,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
