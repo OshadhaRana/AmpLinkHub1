@@ -25,7 +25,7 @@
         <div class="navbar-menu-wrapper d-flex align-items-top">
             <ul class="navbar-nav">
                 <li class="nav-item fw-semibold d-none d-lg-block ms-0">
-                    <h1 class="welcome-text">Welcome back, <span class="text-black fw-bold">{{ $name }}</span></h1>
+                    <h1 class="welcome-text">Welcome back, <span class="text-black fw-bold"></span></h1>
                     <h3 class="welcome-sub-text">AmpLinkHub performance </h3>
                 </li>
             </ul>
@@ -150,8 +150,7 @@
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                         <div class="dropdown-header text-center">
                             <img class="img-md rounded-circle" src="Images/face8.jpg" alt="Profile image">
-                            <p class="mb-1 mt-3 fw-semibold">{{ $name }}</p>
-                            <p class="fw-light text-muted mb-0">{{ $email }}</p>
+
                         </div>
                         <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile <span class="badge badge-pill badge-danger">1</span></a>
                         <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-message-text-outline text-primary me-2"></i> Messages</a>
@@ -172,7 +171,7 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin">
+                    <a class="nav-link" href="{{url('admin')}}">
                         <i class="mdi mdi-grid-large menu-icon"></i>
                         <span class="menu-title">Dashboard</span>
                     </a>
@@ -204,6 +203,23 @@
                         <ul class="nav flex-column sub-menu">
 
 
+                            <li class="nav-item"> <a class="nav-link" href="{{ url('viewcustomer') }}"> View All Users </a></li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#auth1" aria-expanded="false" aria-controls="auth">
+                        <i class="menu-icon mdi mdi-account-circle-outline"></i>
+                        <span class="menu-title">Products</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="auth1">
+                        <ul class="nav flex-column sub-menu">
+
+
+                            <li class="nav-item"> <a class="nav-link" href="{{ route('products.index') }}"> View All Products </a></li>
 
                         </ul>
                     </div>
@@ -540,3 +556,4 @@
     <!-- page-body-wrapper ends -->
 </div>
 </body>
+

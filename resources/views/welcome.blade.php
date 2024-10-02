@@ -7,10 +7,8 @@
 
     <ul class="navlist">
         <li><a href="/Home">Home</a></li>
-        <li><a href="Products">About</a></li>
-        <li><a href='/Services'>Products</a></li>
-        <li><a href="Life">Batt & Tire Lifespan Tracker</a></li>
-        <li><a href="/logout">Log Out</a></li>
+        <li><a href="{{ route('viewproducts') }}">Products</a></li>
+        <li><a href="/login">Batt & Tire Lifespan Tracker</a></li>
 
     </ul>
 
@@ -26,7 +24,7 @@
             <h1>Amaron</h1>
             <p>Discover unparalleled power and reliability with our selection of Amaron batteries, <br>ensuring your vehicle stays charged and ready for the road ahead.</p>
 
-            <a href="#" class="ctaa"><i class="ri-battery-2-charge-fill"></i>Battery Health</a>
+            <a href="{{url('login')}}" class="ctaa"><i class="ri-battery-2-charge-fill"></i>Battery Health</a>
         </div>
 
         <div class="hero-img">

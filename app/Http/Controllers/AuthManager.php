@@ -73,7 +73,7 @@ class AuthManager extends Controller
             // Check if the user exists and has a user type
             if ($user->usertype == 'user') {
                 // User is a regular user, redirect to the home page
-                return redirect()->intended(route('home'));
+                return redirect()->intended(route('getBatteryPercentage'));
             } elseif ($user->usertype == 'admin') {
                 // User is an admin, return the admin view with the name from session
                 return view('admin', ['name' => session('user_name'), 'email' => \session('user_email')]);

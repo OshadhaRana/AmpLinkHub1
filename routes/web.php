@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthManager;
+use App\Http\Controllers\BatteryReplacementController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ForgetPasswordManager;
 use Illuminate\Support\Facades\Route;
@@ -57,3 +59,22 @@ Route::post('/reset-password',[ForgetPasswordManager::class, 'resetpasswordpost'
 
 
 Route::get('/viewusertoadmin', [AuthManager::class, 'viewusertoadmin']) ->name('viewusertoadmin');
+
+Route::middleware(['auth'])->get('/battery/percentage', [BatteryReplacementController::class, 'getBatteryPercentage']) ->name('getBatteryPercentage');
+
+
+
+Route::get('/customers', [UserController::class, 'index'])->name('customers.index')->name('viewcustomer');
+
+Route::get('/products', [ProductController::class, 'index'])->name('viewproducts');
+
+
+
+
+Route::get('/product', [ProductController::class, 'index1'])->name('products.index');           // List all products
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');   // Show form to create a product
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');          // Store a new product
+Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');    // Show a single product
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit'); // Show form to edit a product
+Route::post('/products/{product}', [ProductController::class, 'update'])->name('products.update'); // Update a product
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy'); // Delete a product
